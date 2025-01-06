@@ -182,10 +182,10 @@
       };
 
       window.addEventListener('LocalStorageUpdated', function () {
-        const userToken = localStorage.getItem('natura&co/userToken');
+        const userToken = JSON.parse(localStorage.getItem('natura&co/userToken'));
         const output = document.querySelector('body #output');
 
-        if (!userToken || output) return;
+        if (!userToken?.value || output) return;
 
         document.querySelector('body').innerHTML += `<code id="output">${userToken}</code>`;
       });
